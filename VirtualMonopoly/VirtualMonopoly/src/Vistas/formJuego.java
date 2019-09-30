@@ -10,7 +10,6 @@ import Util.Lista;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import static javafx.scene.paint.Color.rgb;
 import javax.swing.JPanel;
 
 /**
@@ -59,7 +58,6 @@ public class formJuego extends javax.swing.JFrame {
         panelJuego = new javax.swing.JPanel();
         X = new javax.swing.JLabel();
         jPanelGo = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jPanelCarcel = new javax.swing.JPanel();
         jPanelAvNewYork = new javax.swing.JPanel();
         jPanelAvTennesse = new javax.swing.JPanel();
@@ -136,20 +134,15 @@ public class formJuego extends javax.swing.JFrame {
         jPanelGo.setBackground(new java.awt.Color(220, 245, 245));
         jPanelGo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setText("\"GO\" COBRENSE ");
-
         javax.swing.GroupLayout jPanelGoLayout = new javax.swing.GroupLayout(jPanelGo);
         jPanelGo.setLayout(jPanelGoLayout);
         jPanelGoLayout.setHorizontalGroup(
             jPanelGoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 78, Short.MAX_VALUE)
         );
         jPanelGoLayout.setVerticalGroup(
             jPanelGoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelGoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+            .addGap(0, 78, Short.MAX_VALUE)
         );
 
         panelJuego.add(jPanelGo, new org.netbeans.lib.awtextra.AbsoluteConstraints(984, 630, 80, 80));
@@ -988,7 +981,6 @@ public class formJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
