@@ -12,6 +12,7 @@ public class ClassJugador {
     private Integer posicion;
     private Color color;
     private String nombre;
+    private Integer tiro = 0;
 
     public ClassJugador() {
     }
@@ -46,6 +47,13 @@ public class ClassJugador {
         panel.setBackground(this.getColor());
        
     }
+    
+    public int tirarDado (){
+        int valorDado = (int) Math.floor(Math.random()*(11-1+1)+1);
+        this.setPosicion(valorDado);
+        this.tiro=valorDado;
+        return valorDado;
+    }
 
     public Color getColor() {
         return color;
@@ -64,6 +72,15 @@ public class ClassJugador {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public Integer getTiro() {
+        return tiro;
+    }
+
+    public void setTiro(Integer tiro) {
+        this.tiro = tiro;
+    }
+    
     
     
 }
