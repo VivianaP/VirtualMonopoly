@@ -12,7 +12,7 @@ import Vistas.formJuego;
  */
 public class formInicio extends javax.swing.JFrame {
 
-    String message; 
+    public static String message; 
     /**
      * Creates new form formInicio
      */

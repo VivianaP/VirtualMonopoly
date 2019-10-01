@@ -9,6 +9,9 @@ import Clases.ClassJugador;
 import Util.Lista;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 import javax.swing.JPanel;
 
@@ -24,11 +27,17 @@ public class formJuego extends javax.swing.JFrame {
     
     Lista casillas = new Lista();
     
-    ClassJugador jugador1 = new ClassJugador(-1,Color.RED,"jugador1");
+
     
-  
+    ClassJugador jugador1 = new ClassJugador(1,Color.RED,"jugador1");
+    ClassJugador jugador2 = new ClassJugador(-1,new java.awt.Color(255,204,0),"jugador2");
+    ClassJugador jugador3 = new ClassJugador(-1,new java.awt.Color(102,204,0),"jugador3");
+    ClassJugador jugador4 = new ClassJugador(-1,new java.awt.Color(102,0,204),"jugador4");
     
+    Queue jugadores = new LinkedList();
     
+
+
     public formJuego() {
         initComponents();
         this.setVisible(true);
@@ -40,10 +49,9 @@ public class formJuego extends javax.swing.JFrame {
         jLabelJugador4.setVisible(false);
         jLabelDinero4.setVisible(false);
         jLabelBillete4.setVisible(false);
-        
+      
         asignar();
-        
-        
+
     }
 
     /**
@@ -57,8 +65,10 @@ public class formJuego extends javax.swing.JFrame {
 
         panelJuego = new javax.swing.JPanel();
         X = new javax.swing.JLabel();
-        jPanelGo = new javax.swing.JPanel();
         jPanelCarcel = new javax.swing.JPanel();
+        jPanelGo = new javax.swing.JPanel();
+        jScroll = new javax.swing.JScrollPane();
+        jTextArea = new javax.swing.JTextArea();
         jPanelAvNewYork = new javax.swing.JPanel();
         jPanelAvTennesse = new javax.swing.JPanel();
         jPanelFerroPensilvania = new javax.swing.JPanel();
@@ -94,13 +104,25 @@ public class formJuego extends javax.swing.JFrame {
         jPanelMuelle = new javax.swing.JPanel();
         jPanelAvConnecticut = new javax.swing.JPanel();
         jPanelAvOriental = new javax.swing.JPanel();
+        jScroll4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
         jPanelAvMediterraneo = new javax.swing.JPanel();
+        jScroll1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanelSuerte1 = new javax.swing.JPanel();
         jPanelAvVermont = new javax.swing.JPanel();
         jPanelAvBaltica = new javax.swing.JPanel();
+        jScroll3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         jPanelFerroReading = new javax.swing.JPanel();
+        jScroll6 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
         jPanelArcaComunal1 = new javax.swing.JPanel();
+        jScroll2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jPanelImpuestoIngresos = new javax.swing.JPanel();
+        jScroll5 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -131,22 +153,6 @@ public class formJuego extends javax.swing.JFrame {
         });
         panelJuego.add(X, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 0, 20, 20));
 
-        jPanelGo.setBackground(new java.awt.Color(220, 245, 245));
-        jPanelGo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanelGoLayout = new javax.swing.GroupLayout(jPanelGo);
-        jPanelGo.setLayout(jPanelGoLayout);
-        jPanelGoLayout.setHorizontalGroup(
-            jPanelGoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
-        jPanelGoLayout.setVerticalGroup(
-            jPanelGoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
-
-        panelJuego.add(jPanelGo, new org.netbeans.lib.awtextra.AbsoluteConstraints(984, 630, 80, 80));
-
         jPanelCarcel.setBackground(new java.awt.Color(220, 245, 245));
         jPanelCarcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -162,6 +168,39 @@ public class formJuego extends javax.swing.JFrame {
         );
 
         panelJuego.add(jPanelCarcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 630, 80, 80));
+
+        jPanelGo.setBackground(new java.awt.Color(220, 245, 245));
+        jPanelGo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea.setEditable(false);
+        jTextArea.setBackground(new java.awt.Color(220, 245, 245));
+        jTextArea.setColumns(20);
+        jTextArea.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jTextArea.setRows(5);
+        jTextArea.setText("GO\nCÓBRENSE\n$200 DE\nSUELDO AL\nPASAR");
+        jScroll.setViewportView(jTextArea);
+
+        javax.swing.GroupLayout jPanelGoLayout = new javax.swing.GroupLayout(jPanelGo);
+        jPanelGo.setLayout(jPanelGoLayout);
+        jPanelGoLayout.setHorizontalGroup(
+            jPanelGoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelGoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelGoLayout.setVerticalGroup(
+            jPanelGoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelGoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScroll)
+                .addContainerGap())
+        );
+
+        panelJuego.add(jPanelGo, new org.netbeans.lib.awtextra.AbsoluteConstraints(984, 630, 80, 80));
 
         jPanelAvNewYork.setBackground(new java.awt.Color(220, 245, 245));
         jPanelAvNewYork.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -574,18 +613,7 @@ public class formJuego extends javax.swing.JFrame {
 
         jPanelFerroViaRapida.setBackground(new java.awt.Color(220, 245, 245));
         jPanelFerroViaRapida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanelFerroViaRapidaLayout = new javax.swing.GroupLayout(jPanelFerroViaRapida);
-        jPanelFerroViaRapida.setLayout(jPanelFerroViaRapidaLayout);
-        jPanelFerroViaRapidaLayout.setHorizontalGroup(
-            jPanelFerroViaRapidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
-        jPanelFerroViaRapidaLayout.setVerticalGroup(
-            jPanelFerroViaRapidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 58, Short.MAX_VALUE)
-        );
-
+        jPanelFerroViaRapida.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelJuego.add(jPanelFerroViaRapida, new org.netbeans.lib.awtextra.AbsoluteConstraints(984, 330, 80, 60));
 
         jPanelSuerte3.setBackground(new java.awt.Color(220, 245, 245));
@@ -670,35 +698,41 @@ public class formJuego extends javax.swing.JFrame {
 
         jPanelAvOriental.setBackground(new java.awt.Color(220, 245, 245));
         jPanelAvOriental.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelAvOriental.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanelAvOrientalLayout = new javax.swing.GroupLayout(jPanelAvOriental);
-        jPanelAvOriental.setLayout(jPanelAvOrientalLayout);
-        jPanelAvOrientalLayout.setHorizontalGroup(
-            jPanelAvOrientalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
-        jPanelAvOrientalLayout.setVerticalGroup(
-            jPanelAvOrientalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
+        jScroll4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScroll4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        panelJuego.add(jPanelAvOriental, new org.netbeans.lib.awtextra.AbsoluteConstraints(614, 630, -1, -1));
+        jTextArea4.setEditable(false);
+        jTextArea4.setBackground(new java.awt.Color(220, 245, 245));
+        jTextArea4.setColumns(20);
+        jTextArea4.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jTextArea4.setRows(5);
+        jTextArea4.setText("AV\nORIENTAL\n\n$100");
+        jScroll4.setViewportView(jTextArea4);
+
+        jPanelAvOriental.add(jScroll4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 60, 60));
+
+        panelJuego.add(jPanelAvOriental, new org.netbeans.lib.awtextra.AbsoluteConstraints(614, 630, 62, 80));
 
         jPanelAvMediterraneo.setBackground(new java.awt.Color(220, 245, 245));
         jPanelAvMediterraneo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelAvMediterraneo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanelAvMediterraneoLayout = new javax.swing.GroupLayout(jPanelAvMediterraneo);
-        jPanelAvMediterraneo.setLayout(jPanelAvMediterraneoLayout);
-        jPanelAvMediterraneoLayout.setHorizontalGroup(
-            jPanelAvMediterraneoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 58, Short.MAX_VALUE)
-        );
-        jPanelAvMediterraneoLayout.setVerticalGroup(
-            jPanelAvMediterraneoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
+        jScroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScroll1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        panelJuego.add(jPanelAvMediterraneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(924, 630, 60, -1));
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(220, 245, 245));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("AV\nMEDITER-\nRÁNEO\n\n$60");
+        jScroll1.setViewportView(jTextArea1);
+
+        jPanelAvMediterraneo.add(jScroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 60));
+
+        panelJuego.add(jPanelAvMediterraneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(922, 630, 62, 80));
 
         jPanelSuerte1.setBackground(new java.awt.Color(220, 245, 245));
         jPanelSuerte1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -734,67 +768,79 @@ public class formJuego extends javax.swing.JFrame {
 
         jPanelAvBaltica.setBackground(new java.awt.Color(220, 245, 245));
         jPanelAvBaltica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelAvBaltica.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanelAvBalticaLayout = new javax.swing.GroupLayout(jPanelAvBaltica);
-        jPanelAvBaltica.setLayout(jPanelAvBalticaLayout);
-        jPanelAvBalticaLayout.setHorizontalGroup(
-            jPanelAvBalticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
-        jPanelAvBalticaLayout.setVerticalGroup(
-            jPanelAvBalticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
+        jScroll3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScroll3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        panelJuego.add(jPanelAvBaltica, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 630, -1, -1));
+        jTextArea3.setEditable(false);
+        jTextArea3.setBackground(new java.awt.Color(220, 245, 245));
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jTextArea3.setRows(5);
+        jTextArea3.setText("AV\nBALTICA\n\n$60\n");
+        jScroll3.setViewportView(jTextArea3);
+
+        jPanelAvBaltica.add(jScroll3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 60));
+
+        panelJuego.add(jPanelAvBaltica, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 630, 62, 80));
 
         jPanelFerroReading.setBackground(new java.awt.Color(220, 245, 245));
         jPanelFerroReading.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelFerroReading.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanelFerroReadingLayout = new javax.swing.GroupLayout(jPanelFerroReading);
-        jPanelFerroReading.setLayout(jPanelFerroReadingLayout);
-        jPanelFerroReadingLayout.setHorizontalGroup(
-            jPanelFerroReadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
-        jPanelFerroReadingLayout.setVerticalGroup(
-            jPanelFerroReadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
+        jScroll6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScroll6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        panelJuego.add(jPanelFerroReading, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 630, -1, -1));
+        jTextArea6.setEditable(false);
+        jTextArea6.setBackground(new java.awt.Color(220, 245, 245));
+        jTextArea6.setColumns(20);
+        jTextArea6.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jTextArea6.setRows(5);
+        jTextArea6.setText("FERRO-\nCARRIL\nREADING\n\n$200");
+        jScroll6.setViewportView(jTextArea6);
+
+        jPanelFerroReading.add(jScroll6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 60));
+
+        panelJuego.add(jPanelFerroReading, new org.netbeans.lib.awtextra.AbsoluteConstraints(676, 630, 62, 80));
 
         jPanelArcaComunal1.setBackground(new java.awt.Color(220, 245, 245));
         jPanelArcaComunal1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelArcaComunal1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanelArcaComunal1Layout = new javax.swing.GroupLayout(jPanelArcaComunal1);
-        jPanelArcaComunal1.setLayout(jPanelArcaComunal1Layout);
-        jPanelArcaComunal1Layout.setHorizontalGroup(
-            jPanelArcaComunal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
-        jPanelArcaComunal1Layout.setVerticalGroup(
-            jPanelArcaComunal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
+        jScroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScroll2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        panelJuego.add(jPanelArcaComunal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 630, -1, -1));
+        jTextArea2.setEditable(false);
+        jTextArea2.setBackground(new java.awt.Color(220, 245, 245));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jTextArea2.setRows(5);
+        jTextArea2.setText("ARCA\nCOMUNAL");
+        jScroll2.setViewportView(jTextArea2);
+
+        jPanelArcaComunal1.add(jScroll2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 60));
+
+        panelJuego.add(jPanelArcaComunal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 630, 60, 80));
 
         jPanelImpuestoIngresos.setBackground(new java.awt.Color(220, 245, 245));
         jPanelImpuestoIngresos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelImpuestoIngresos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanelImpuestoIngresosLayout = new javax.swing.GroupLayout(jPanelImpuestoIngresos);
-        jPanelImpuestoIngresos.setLayout(jPanelImpuestoIngresosLayout);
-        jPanelImpuestoIngresosLayout.setHorizontalGroup(
-            jPanelImpuestoIngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
-        jPanelImpuestoIngresosLayout.setVerticalGroup(
-            jPanelImpuestoIngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
+        jScroll5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScroll5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        panelJuego.add(jPanelImpuestoIngresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(738, 630, -1, -1));
+        jTextArea5.setEditable(false);
+        jTextArea5.setBackground(new java.awt.Color(220, 245, 245));
+        jTextArea5.setColumns(20);
+        jTextArea5.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jTextArea5.setRows(5);
+        jTextArea5.setText("IMPUESTO\nSOBRE\nINGRESO\n\n$200");
+        jScroll5.setViewportView(jTextArea5);
+
+        jPanelImpuestoIngresos.add(jScroll5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 60));
+
+        panelJuego.add(jPanelImpuestoIngresos, new org.netbeans.lib.awtextra.AbsoluteConstraints(738, 630, 62, 80));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("1500");
@@ -875,27 +921,28 @@ public class formJuego extends javax.swing.JFrame {
 
     
     private void tirarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tirarDadosActionPerformed
-
-         
-          
-        if(jugador1.getPosicion()>-1){
-            JPanel panel = (JPanel) casillas.get(jugador1.getPosicion());
-            panel.setBackground(new java.awt.Color(220,245,245));
-        }
-
-        int valorDado = (int) Math.floor(Math.random()*(11-1+1)+1);
-        jugador1.setPosicion(valorDado);
-        jLabelResultadoDado.setText(""+valorDado);
-        JPanel panel = (JPanel) casillas.get(jugador1.getPosicion());
-        panel.setBackground(jugador1.getColor());
         
+         
     }//GEN-LAST:event_tirarDadosActionPerformed
 
     private void jLabelJugador1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJugador1MouseClicked
-        System.err.println("koko");
+       
     }//GEN-LAST:event_jLabelJugador1MouseClicked
 
-    
+    public void agregarJugadores(){
+        jugadores.add(jugador1);
+        jugadores.add(jugador2);
+        
+        if(Integer.parseInt(formInicio.message)==3){
+            jugadores.add(jugador3);
+        } 
+        
+        if(Integer.parseInt(formInicio.message)==4){
+            jugadores.add(jugador3);
+            jugadores.add(jugador4);
+        } 
+        
+    }
     public void asignar(){
         casillas.add(jPanelGo);
         casillas.add(jPanelAvMediterraneo);
@@ -992,7 +1039,7 @@ public class formJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelJugador2;
     public static javax.swing.JLabel jLabelJugador3;
     protected static javax.swing.JLabel jLabelJugador4;
-    private javax.swing.JLabel jLabelResultadoDado;
+    public static javax.swing.JLabel jLabelResultadoDado;
     private javax.swing.JPanel jPanelAgua;
     private javax.swing.JPanel jPanelArcaComunal1;
     private javax.swing.JPanel jPanelArcaComunal2;
@@ -1034,6 +1081,20 @@ public class formJuego extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelSuerte1;
     private javax.swing.JPanel jPanelSuerte2;
     private javax.swing.JPanel jPanelSuerte3;
+    private javax.swing.JScrollPane jScroll;
+    private javax.swing.JScrollPane jScroll1;
+    private javax.swing.JScrollPane jScroll2;
+    private javax.swing.JScrollPane jScroll3;
+    private javax.swing.JScrollPane jScroll4;
+    private javax.swing.JScrollPane jScroll5;
+    private javax.swing.JScrollPane jScroll6;
+    private javax.swing.JTextArea jTextArea;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JPanel panelJuego;
     private javax.swing.JButton tirarDados;
     // End of variables declaration//GEN-END:variables

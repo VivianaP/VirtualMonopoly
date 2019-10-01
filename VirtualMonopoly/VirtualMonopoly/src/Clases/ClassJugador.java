@@ -1,7 +1,10 @@
 
 package Clases;
 
+import Util.Lista;
+import Vistas.formJuego;
 import java.awt.Color;
+import javax.swing.JPanel;
 
 
 public class ClassJugador {
@@ -29,8 +32,19 @@ public class ClassJugador {
       
     }
     
-    public int avanzar (int dados){
-        return dados;
+    public void avanzar (Lista casillas){
+              
+      if(this.getPosicion()>-1){
+            JPanel panel = (JPanel) casillas.get(this.getPosicion());
+            panel.setBackground(new java.awt.Color(220,245,245));
+        }
+
+        int valorDado = (int) Math.floor(Math.random()*(11-1+1)+1);
+        this.setPosicion(valorDado);
+        formJuego.jLabelResultadoDado.setText(""+valorDado);
+        JPanel panel = (JPanel) casillas.get(this.getPosicion());
+        panel.setBackground(this.getColor());
+       
     }
 
     public Color getColor() {
