@@ -46,6 +46,7 @@ public class ClassJugador {
         JPanel panel = (JPanel) casillas.get(this.getPosicion());
         panel.setBackground(this.getColor());
        
+        System.out.print("POSI"+this.posicion);
     }
     
     public int tirarDado (){

@@ -10,12 +10,14 @@ import Clases.ClassJugador;
 import Util.Cola;
 import Util.Imagenes;
 import Util.Lista;
+import Util.Pila;
 import static Vistas.formInicio.message;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+import javax.swing.JOptionPane;
 
 import javax.swing.JPanel;
 
@@ -40,6 +42,8 @@ public class formJuego extends javax.swing.JFrame {
     
     Cola jugadores = new Cola();
    
+    Pila comunal = new Pila();
+    Pila suerte = new Pila();
 
     public formJuego() {
         initComponents();
@@ -54,6 +58,7 @@ public class formJuego extends javax.swing.JFrame {
         jLabelBillete4.setVisible(false);
       
         asignar();
+        
 
     }
 
@@ -372,9 +377,21 @@ public class formJuego extends javax.swing.JFrame {
         jPanelBase.add(resultadoDado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 80, 70));
 
         btnSuerte.setText("SUERTE");
+        btnSuerte.setEnabled(false);
+        btnSuerte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuerteActionPerformed(evt);
+            }
+        });
         jPanelBase.add(btnSuerte, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 400, 110));
 
         btnArcaComunal.setText("ARCA COMUNAL");
+        btnArcaComunal.setEnabled(false);
+        btnArcaComunal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArcaComunalActionPerformed(evt);
+            }
+        });
         jPanelBase.add(btnArcaComunal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 400, 110));
 
         panelJuego.add(jPanelBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 554, 540));
@@ -837,6 +854,7 @@ public class formJuego extends javax.swing.JFrame {
             ClassJugador memo = (ClassJugador) jugadores.desencolar();
              memo.avanzar(casillas);
             jugadores.encolar(memo);
+            ValidarCasillaComunalSuerte();
        // }
         
       /*  else{
@@ -926,12 +944,40 @@ public class formJuego extends javax.swing.JFrame {
         resultadoDado2.setIcon(insertGif.gifDado1(dado2));
     }//GEN-LAST:event_revovlerDadosActionPerformed
 
+    private void btnArcaComunalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArcaComunalActionPerformed
+       btnArcaComunal.setEnabled(false);
+    }//GEN-LAST:event_btnArcaComunalActionPerformed
 
+    private void btnSuerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuerteActionPerformed
+       btnSuerte.setEnabled(false);
+    }//GEN-LAST:event_btnSuerteActionPerformed
+
+
+    
+    
+    
     public void ValidarCasillaComunalSuerte(){ 
+             
+        if(jugador1.getPosicion()==8||jugador1.getPosicion()==23||jugador1.getPosicion()==37){
+            btnSuerte.setEnabled(true);
+        }
         
+        if(jugador1.getPosicion()==3||jugador1.getPosicion()==18||jugador1.getPosicion()==34){
+            btnArcaComunal.setEnabled(true);
+        }
     }
         
     
+    public void asignarCarta(){
+    
+        Object carcel = JOptionPane.showConfirmDialog(null,"Salir de la carcel");
+        
+        
+        comunal.apilar(carcel);
+        
+        
+    
+}   
     public void asignar(){
         casillas.add(jPanelGo);
         casillas.add(jPanelAvMediterraneo);
