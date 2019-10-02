@@ -36,6 +36,8 @@ public class formInicio extends javax.swing.JFrame {
         btnJugar = new javax.swing.JButton();
         btnCantidad = new javax.swing.JButton();
         X = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -76,6 +78,11 @@ public class formInicio extends javax.swing.JFrame {
             }
         });
         panelPrinci.add(X, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 0, 20, 20));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox1);
+
+        panelPrinci.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 340, 160));
 
         getContentPane().add(panelPrinci, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 730));
 
@@ -163,6 +170,8 @@ public class formInicio extends javax.swing.JFrame {
     private javax.swing.JLabel X;
     private javax.swing.JButton btnCantidad;
     private javax.swing.JButton btnJugar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelTitulo;
     private javax.swing.JPanel panelPrinci;
     // End of variables declaration//GEN-END:variables
