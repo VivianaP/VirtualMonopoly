@@ -5,8 +5,10 @@
  */
 package Vistas;
 
+import Clases.ClassDados;
 import Clases.ClassJugador;
 import Util.Cola;
+import Util.Imagenes;
 import Util.Lista;
 import static Vistas.formInicio.message;
 import java.awt.Color;
@@ -80,8 +82,10 @@ public class formJuego extends javax.swing.JFrame {
         jPanelDescanso = new javax.swing.JPanel();
         jPanelBase = new javax.swing.JPanel();
         tirarDados = new javax.swing.JButton();
-        jLabelResultadoDado = new javax.swing.JLabel();
+        resultadoDado2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        revovlerDados = new javax.swing.JButton();
+        resultadoDado1 = new javax.swing.JLabel();
         jPanelAvKentucky = new javax.swing.JPanel();
         jPanelSuerte2 = new javax.swing.JPanel();
         jPanelAvIndiana = new javax.swing.JPanel();
@@ -343,17 +347,27 @@ public class formJuego extends javax.swing.JFrame {
                 tirarDadosActionPerformed(evt);
             }
         });
-        jPanelBase.add(tirarDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
+        jPanelBase.add(tirarDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
 
-        jLabelResultadoDado.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
-        jLabelResultadoDado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelBase.add(jLabelResultadoDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 60, 50));
+        resultadoDado2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
+        jPanelBase.add(resultadoDado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 80, 70));
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
         jLabel1.setFont(new java.awt.Font("Goudy Stout", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setText("VIRTUAL MONOPOLY");
         jPanelBase.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 500, 90));
+
+        revovlerDados.setText("Revolver");
+        revovlerDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                revovlerDadosActionPerformed(evt);
+            }
+        });
+        jPanelBase.add(revovlerDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 80, 20));
+
+        resultadoDado1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
+        jPanelBase.add(resultadoDado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 80, 70));
 
         panelJuego.add(jPanelBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 554, 540));
 
@@ -807,6 +821,9 @@ public class formJuego extends javax.swing.JFrame {
 
     
     private void tirarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tirarDadosActionPerformed
+        
+        
+        
         System.out.print("jugar");
         if(seleccion){
             ClassJugador memo = (ClassJugador) jugadores.desencolar();
@@ -891,6 +908,15 @@ public class formJuego extends javax.swing.JFrame {
     private void jLabelJugador1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJugador1MouseClicked
        
     }//GEN-LAST:event_jLabelJugador1MouseClicked
+
+    private void revovlerDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revovlerDadosActionPerformed
+        Imagenes insertGif = new Imagenes();
+        ClassDados tirar = new ClassDados();
+        int dado1 = tirar.GeneraPrimer();
+        int dado2 = tirar.GeneraSecun();
+        resultadoDado1.setIcon(insertGif.gifDado1(dado1));
+        resultadoDado2.setIcon(insertGif.gifDado1(dado2));
+    }//GEN-LAST:event_revovlerDadosActionPerformed
 
 
         
@@ -992,7 +1018,6 @@ public class formJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelJugador2;
     public static javax.swing.JLabel jLabelJugador3;
     protected static javax.swing.JLabel jLabelJugador4;
-    public static javax.swing.JLabel jLabelResultadoDado;
     private javax.swing.JPanel jPanelAgua;
     private javax.swing.JPanel jPanelArcaComunal1;
     private javax.swing.JPanel jPanelArcaComunal2;
@@ -1035,6 +1060,9 @@ public class formJuego extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelSuerte2;
     private javax.swing.JPanel jPanelSuerte3;
     private javax.swing.JPanel panelJuego;
+    public static javax.swing.JLabel resultadoDado1;
+    public static javax.swing.JLabel resultadoDado2;
+    private javax.swing.JButton revovlerDados;
     private javax.swing.JButton tirarDados;
     // End of variables declaration//GEN-END:variables
 }

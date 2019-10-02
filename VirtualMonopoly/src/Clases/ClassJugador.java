@@ -42,7 +42,7 @@ public class ClassJugador {
 
         int valorDado = (int) Math.floor(Math.random()*(11-1+1)+1);
         this.setPosicion(valorDado);
-        formJuego.jLabelResultadoDado.setText(""+valorDado);
+        formJuego.resultadoDado2.setText(""+valorDado);
         JPanel panel = (JPanel) casillas.get(this.getPosicion());
         panel.setBackground(this.getColor());
        
