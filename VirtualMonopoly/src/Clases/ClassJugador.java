@@ -34,25 +34,32 @@ public class ClassJugador {
     }
     
     public void avanzar (Lista casillas){
-              
+      ClassDados dados = new ClassDados();
+      
       if(this.getPosicion()>-1){
             JPanel panel = (JPanel) casillas.get(this.getPosicion());
             panel.setBackground(new java.awt.Color(220,245,245));
         }
 
-        int valorDado = (int) Math.floor(Math.random()*(11-1+1)+1);
-        this.setPosicion(valorDado);
-        formJuego.resultadoDado2.setText(""+valorDado);
+        int valorDado1 = (int)(Math.random()*6)+1;
+        int valorDado2 = (int)(Math.random()*6)+1;
+        int sumaDados = dados.SumaDados(valorDado1, valorDado2);
+        this.setPosicion(sumaDados);
+        formJuego.resultadoDado1.setIcon(dados.pngDado(valorDado1));
+        formJuego.resultadoDado2.setIcon(dados.pngDado(valorDado2));
         JPanel panel = (JPanel) casillas.get(this.getPosicion());
         panel.setBackground(this.getColor());
        
     }
     
     public int tirarDado (){
-        int valorDado = (int) Math.floor(Math.random()*(11-1+1)+1);
-        this.setPosicion(valorDado);
-        this.tiro=valorDado;
-        return valorDado;
+        ClassDados dados = new ClassDados();
+        int valorDado1 = (int)(Math.random()*6)+1;
+        int valorDado2 = (int)(Math.random()+6)+1;
+        int sumaDados = dados.SumaDados(valorDado1, valorDado2);
+        this.setPosicion(sumaDados);
+        this.tiro=sumaDados;
+        return sumaDados;
     }
 
     public Color getColor() {

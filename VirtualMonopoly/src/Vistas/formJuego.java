@@ -8,7 +8,6 @@ package Vistas;
 import Clases.ClassDados;
 import Clases.ClassJugador;
 import Util.Cola;
-import Util.Imagenes;
 import Util.Lista;
 import static Vistas.formInicio.message;
 import java.awt.Color;
@@ -821,15 +820,12 @@ public class formJuego extends javax.swing.JFrame {
 
     
     private void tirarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tirarDadosActionPerformed
-        
-        
-        
-        System.out.print("jugar");
-        if(seleccion){
+
+       // if(seleccion){
             ClassJugador memo = (ClassJugador) jugadores.desencolar();
              memo.avanzar(casillas);
             jugadores.encolar(memo);
-        }
+        /*}
         
         else{
             ClassJugador memo2 = (ClassJugador) jugadores.desencolar();
@@ -902,7 +898,7 @@ public class formJuego extends javax.swing.JFrame {
                 break;
 
         }
-        }
+        }*/
     }//GEN-LAST:event_tirarDadosActionPerformed
 
     private void jLabelJugador1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJugador1MouseClicked
@@ -910,12 +906,9 @@ public class formJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelJugador1MouseClicked
 
     private void revovlerDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revovlerDadosActionPerformed
-        Imagenes insertGif = new Imagenes();
-        ClassDados tirar = new ClassDados();
-        int dado1 = tirar.GeneraPrimer();
-        int dado2 = tirar.GeneraSecun();
-        resultadoDado1.setIcon(insertGif.gifDado1(dado1));
-        resultadoDado2.setIcon(insertGif.gifDado1(dado2));
+        ClassDados insertGif = new ClassDados();
+        resultadoDado1.setIcon(insertGif.gifDado1());
+        resultadoDado2.setIcon(insertGif.gifDado2());
     }//GEN-LAST:event_revovlerDadosActionPerformed
 
 
@@ -962,6 +955,10 @@ public class formJuego extends javax.swing.JFrame {
         casillas.add(jPanelPlazaPark);
         casillas.add(jPanelImpuestoLujo);
         casillas.add(jPanelMuelle); 
+        jugadores.encolar(jugador2);
+                        jugadores.encolar(jugador1);
+                        jugadores.encolar(jugador3);
+                        jugadores.encolar(jugador4);
         
     }
     
