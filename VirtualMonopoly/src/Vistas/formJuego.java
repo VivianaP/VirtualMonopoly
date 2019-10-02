@@ -807,7 +807,7 @@ public class formJuego extends javax.swing.JFrame {
 
     
     private void tirarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tirarDadosActionPerformed
-     
+        System.out.print("jugar");
         if(seleccion){
             ClassJugador memo = (ClassJugador) jugadores.desencolar();
              memo.avanzar(casillas);
