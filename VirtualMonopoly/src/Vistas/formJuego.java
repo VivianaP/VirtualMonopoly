@@ -86,6 +86,8 @@ public class formJuego extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         revovlerDados = new javax.swing.JButton();
         resultadoDado1 = new javax.swing.JLabel();
+        btnSuerte = new javax.swing.JButton();
+        btnArcaComunal = new javax.swing.JButton();
         jPanelAvKentucky = new javax.swing.JPanel();
         jPanelSuerte2 = new javax.swing.JPanel();
         jPanelAvIndiana = new javax.swing.JPanel();
@@ -356,7 +358,7 @@ public class formJuego extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Goudy Stout", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setText("VIRTUAL MONOPOLY");
-        jPanelBase.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 500, 90));
+        jPanelBase.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 500, 90));
 
         revovlerDados.setText("Revolver");
         revovlerDados.addActionListener(new java.awt.event.ActionListener() {
@@ -368,6 +370,12 @@ public class formJuego extends javax.swing.JFrame {
 
         resultadoDado1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
         jPanelBase.add(resultadoDado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 80, 70));
+
+        btnSuerte.setText("SUERTE");
+        jPanelBase.add(btnSuerte, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 400, 110));
+
+        btnArcaComunal.setText("ARCA COMUNAL");
+        jPanelBase.add(btnArcaComunal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 400, 110));
 
         panelJuego.add(jPanelBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 554, 540));
 
@@ -825,13 +833,13 @@ public class formJuego extends javax.swing.JFrame {
         
         
         System.out.print("jugar");
-        if(seleccion){
+       // if(seleccion){
             ClassJugador memo = (ClassJugador) jugadores.desencolar();
              memo.avanzar(casillas);
             jugadores.encolar(memo);
-        }
+       // }
         
-        else{
+      /*  else{
             ClassJugador memo2 = (ClassJugador) jugadores.desencolar();
             if(memo2!=null){
                  memo2.tirarDado();
@@ -902,7 +910,7 @@ public class formJuego extends javax.swing.JFrame {
                 break;
 
         }
-        }
+        }*/
     }//GEN-LAST:event_tirarDadosActionPerformed
 
     private void jLabelJugador1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelJugador1MouseClicked
@@ -919,6 +927,9 @@ public class formJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_revovlerDadosActionPerformed
 
 
+    public void ValidarCasillaComunalSuerte(){ 
+        
+    }
         
     
     public void asignar(){
@@ -963,6 +974,11 @@ public class formJuego extends javax.swing.JFrame {
         casillas.add(jPanelImpuestoLujo);
         casillas.add(jPanelMuelle); 
         
+        jugadores.encolar(jugador1);
+        jugadores.encolar(jugador2);
+        jugadores.encolar(jugador3);
+        jugadores.encolar(jugador4);
+        
     }
     
 
@@ -1004,6 +1020,8 @@ public class formJuego extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel X;
+    private javax.swing.JButton btnArcaComunal;
+    private javax.swing.JButton btnSuerte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;

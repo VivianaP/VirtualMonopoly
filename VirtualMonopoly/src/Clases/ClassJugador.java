@@ -50,7 +50,7 @@ public class ClassJugador {
     
     public int tirarDado (){
         int valorDado = (int) Math.floor(Math.random()*(11-1+1)+1);
-        this.setPosicion(valorDado);
+        //this.setPosicion(valorDado);
         this.tiro=valorDado;
         return valorDado;
     }
